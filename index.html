@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfigurator samochodu </title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+function Start(){
+  cenaA = 160000;
+document.getElementById("cenaS").innerHTML = cenaA + "zł";
+
+}
+function Fcena(){
+    let cena = cenaA
+    let n1= document.getElementById("n1").checked;
+    let n2= document.getElementById("n2").checked;
+    let n3= document.getElementById("n3").checked;
+    if(n2){
+      cena=cena*1.3;
+    }
+    if(n3){
+      cena=cena*1.1;
+    }
+    let sil=document.getElementById("silnik").value;
+    if(sil=="d"){
+      cena=cena+3000;
+    }
+    if(sil=="h")
+    {
+        cena=cena+15000;
+    }
+    if (sil=="e"){
+    cena=cena+30000;
+    }
+    let kl=document.getElementById("kl").checked;
+    let sk=document.getElementById("sk").checked;
+    let cz=document.getElementById("cz").checked;
+    let ka=document.getElementById("ka").checked;
+    let la=document.getElementById("la").checked;
+    let lu=document.getElementById("lu").checked;
+    let ab=document.getElementById("ab").checked;
+    let te=document.getElementById("te").checked;
+    if(kl) {
+        cena=cena + 5000;
+    }
+    if(sk) {
+        cena=cena + 3000;
+    }
+
+    if(cz) {
+        cena=cena + 3000;
+    }if(ka) {
+        cena=cena + 3000;
+    }
+    if(la) {
+        cena=cena + 10000;
+    } 
+    if(lu) {
+        cena=cena + 1000;
+    }if(ab) {
+        cena=cena + 3000;
+    }if(te) {
+        cena=cena + 6000;
+    }
+
+    
+    document.getElementById("cenaS").innerHTML = cena + "zł";
+
+}
+    </script>
+</head>
+<body onload="Start()">
+<header>
+ <h1>Wybierz konfiguracię samochodu </h1>   
+</header>
+<main>
+<div id="cenaS">???</div>
+<form action="mailto:szymonklasab3@gmail.com" enctype="text/plain" method="post">
+<div class="row">
+    <fieldset>
+        <legend>Rodzaj nadwozia</legend>
+<input type="radio" value="1" name="nadwozie"id="n1"onchange="Fcena()">.Hatchback 
+<input type="radio" value="2" name="nadwozie"id="n2"onchange="Fcena()">.Kabriolet 
+<input type="radio" value="3" name="nadwozie"id="n3"onchange="Fcena()">.Sedan 
+    </fieldset>
+</div>
+<div class="row">
+    <ladel for="silnik">Rodzaj silnika</ladel>
+    <select name="silnik" id="silnik"onchange="Fcena()">
+        <option value="d">diesel</option>
+        <option value="B">Benzyna</option>
+        <option value="e">elektryczny</option>
+        <option value="h">hybryda</option>
+    </select>
+</div>
+<div class="row">
+    <input type="checkbox" name="kl"id="kl" onchange="Fcena()">Klimatyzacia
+    <input type="checkbox" name="sk"id="sk" onchange="Fcena()">Skórzana tapicerka 
+    <input type="checkbox" name="cz"id="cz" onchange="Fcena()">Crzujniki parkowania
+    <input type="checkbox" name="ka"id="ka" onchange="Fcena()">Kamera cofania
+   <br> 
+   <input type="checkbox" name="la"id="la" onchange="Fcena()">Lampy Ledowe
+   <input type="checkbox" name="lu"id="lu" onchange="Fcena()">Lusterko składane
+   <input type="checkbox" name="ab"id="ab" onchange="Fcena()">ABS/ESP
+   <input type="checkbox" name="te"id="te" onchange="Fcena()">Tempomat
+</div>
+<div class="row">
+<input type ="text">Podaj imię i nawzwisko <br>
+<input type ="email" name=""id="">Podaj email <br>
+<input type ="tel" name="" id="">Podaj numer telefonu <br>
+</div>
+<div class="row">
+<label for="">Kolor lakieru </label>
+<input type="color" name="" id="">
+</div>
+<div class="row">
+ Uwagi <br>
+ <textarea name="" id="" cols="60" rows="5"></textarea>
+</div>
+<div class="row">
+
+<input type="submit" value="Zamów">
+<input type="reset" value="Wyczyść">
+</div>
+</form>
+</main>
+    
+</body>
+</html>
